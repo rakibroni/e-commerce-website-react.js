@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./CSS/LoginSignup.css";
+import { Link } from "react-router-dom";
 
 const LoginSignup = () => {
   const [formData, setFormData] = useState({
@@ -70,7 +71,10 @@ const LoginSignup = () => {
           </div>
           <button type="submit">Submit</button>
           <p className="loginsignup-login">
-            Dont have an account? <span>Sign Up</span>
+            Dont have an account?{" "}
+            <Link to="/registration">
+              <span>Sign Up</span>
+            </Link>
           </p>
           <div className="loginsignup-agree">
             <p>By continuing, I agree to the terms of use & privacy policy</p>
