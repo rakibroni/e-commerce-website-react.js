@@ -4,7 +4,7 @@ import "./CSS/LoginSignup.css";
 
 const LoginSignup = () => {
   const [formData, setFormData] = useState({
-    username: "",
+    password: "",
     email: "",
   });
   const [errors, setError] = useState({});
@@ -14,9 +14,9 @@ const LoginSignup = () => {
     e.preventDefault();
     let isValid = true;
     let validatorError = {};
-    if (formData.username === "" || formData.username === null) {
+    if (formData.password === "" || formData.password === null) {
       isValid = false;
-      validatorError.username = "Username Required";
+      validatorError.password = "password Required";
     }
     if (formData.email === "" || formData.email === null) {
       isValid = false;
@@ -31,7 +31,7 @@ const LoginSignup = () => {
     <div className="loginsignup">
       <form onSubmit={handleSubmit}>
         <div className="loginsignup-container">
-          <h1>Sign Up</h1>
+          <h1>Login</h1>
           <div className="loginsignup-fields">
             {/* {!valid && (
               <span className="">
@@ -39,19 +39,7 @@ const LoginSignup = () => {
                 {errors.email && <div>{errors.email}</div>}
               </span>
             )} */}
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={formData.username}
-              onChange={(e) =>
-                setFormData((prevState) => ({
-                  ...prevState,
-                  username: e.target.value,
-                }))
-              }
-            />
-            {errors.username && <span>{errors.username}</span>}
+
             <input
               type="text"
               name="email"
@@ -65,11 +53,24 @@ const LoginSignup = () => {
               }
             />
             {errors.email && <span>{errors.email}</span>}
-            <input type="password" name="password" placeholder="Password" />
+
+            <input
+              type="password"
+              name="password"
+              placeholder="password"
+              value={formData.password}
+              onChange={(e) =>
+                setFormData((prevState) => ({
+                  ...prevState,
+                  password: e.target.value,
+                }))
+              }
+            />
+            {errors.password && <span>{errors.password}</span>}
           </div>
           <button type="submit">Submit</button>
           <p className="loginsignup-login">
-            Already have an account? <span>Login here</span>
+            Dont have an account? <span>Sign Up</span>
           </p>
           <div className="loginsignup-agree">
             <p>By continuing, I agree to the terms of use & privacy policy</p>
