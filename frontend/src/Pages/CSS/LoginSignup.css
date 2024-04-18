@@ -60,3 +60,13 @@
     font-size: 18px;
     font-weight: 500;
 }
+
+span{
+    font-size: 12px;
+    padding: 3px;
+    color: red;
+    
+}
+input:invalid ~ span{
+    display: block;
+}
